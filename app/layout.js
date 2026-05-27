@@ -58,11 +58,8 @@ export default function RootLayout({ children }) {
       <body suppressHydrationWarning>
         {children}
 
-        {/* Scripts in exact original order: jQuery first, then webflow, then scrollify, then jquery-ui */}
-        <script src="/assets/js/jquery-3.5.1.min.dc5e7f18c8.js" />
+        {/* Single bundled core.js: jQuery → Webflow → Scrollify → jQuery UI */}
         <script src="/assets/js/core.js" />
-        <script src="/assets/js/jquery.scrollify.min.js" />
-        <script src="/assets/js/jquery-ui.min.js" />
         {/* Scrollify init + brand click handler — identical to original index.html */}
         <script dangerouslySetInnerHTML={{
           __html: `
