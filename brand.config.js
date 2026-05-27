@@ -100,6 +100,7 @@ module.exports = {
     bLogoW: "/assets/63e61b688f7e7ed65e5b0a94_b.svg",
     rotateTextSvg: "/assets/63ecf6e685b190418420c138_rotate-text.svg",
     bottleLottie: "/assets/63e61ddce565b83f1f04fa46_bottle_3d_fixed_2.json",
+    bottleGlb: "/assets/3d/beer-bottle.glb",
     txtsLottie: "/assets/63e969f568e326e905f26ff4_63e21f1277369497ec7325f5_TXTs.json",
     
     // WebP/PNG Images
