@@ -7,6 +7,8 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 const SECTION_INDEXES = [1, 2, 3, 4, 5, 6];
+const MODEL_FRONT_YAW = 0;
+const MODEL_VIEW_SCALE = 2.35;
 const DESKTOP_TIMELINE = [
   [{ x: 0, xu: 'em', y: 0, yu: 'em', z: 0, frame: 0, scale: 1 }, { x: 14, xu: 'em', y: 10, yu: 'em', z: -24, frame: 99, scale: 1.4 }],
   [{ x: 14, xu: 'em', y: 10, yu: 'em', z: -10, frame: 99, scale: 1.4 }, { x: -19, xu: 'em', y: 0, yu: 'em', z: 0, frame: 0, scale: 1.1 }],
@@ -48,6 +50,12 @@ const getTimeline = () => {
   if (window.innerWidth >= 992) return DESKTOP_TIMELINE;
   if (window.innerWidth >= 768) return TABLET_TIMELINE;
   return MOBILE_TIMELINE;
+};
+
+const getCameraDistance = () => {
+  if (window.innerWidth >= 992) return 13.5;
+  if (window.innerWidth >= 768) return 15;
+  return 16.5;
 };
 
 const parseMatrix = (transform) => {
@@ -106,8 +114,8 @@ export default function RotatingBottle({ lottieSrc, src }) {
     if (!mount || !proxyLottie || !proxyWrapper || !wrapper) return undefined;
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(28, 1, 0.1, 100);
-    camera.position.set(0, 0.04, 9.2);
+    const camera = new THREE.PerspectiveCamera(18, 1, 0.1, 100);
+    camera.position.set(0, 0.02, getCameraDistance());
 
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
@@ -142,8 +150,10 @@ export default function RotatingBottle({ lottieSrc, src }) {
       const { width, height } = mount.getBoundingClientRect();
       const safeWidth = Math.max(1, width);
       const safeHeight = Math.max(1, height);
+
       renderer.setSize(safeWidth, safeHeight, false);
       camera.aspect = safeWidth / safeHeight;
+      camera.position.z = getCameraDistance();
       camera.updateProjectionMatrix();
     };
 
@@ -164,8 +174,9 @@ export default function RotatingBottle({ lottieSrc, src }) {
         const maxDimension = Math.max(size.x, size.y, size.z) || 1;
 
         model.position.sub(center);
-        model.scale.setScalar(3 / maxDimension);
-        model.rotation.set(0.04, Math.PI / 2, 0);
+        model.position.y -= 0.04;
+        model.scale.setScalar(MODEL_VIEW_SCALE / maxDimension);
+        model.rotation.set(0.03, MODEL_FRONT_YAW, 0);
         modelBaseRotation = {
           x: model.rotation.x,
           y: model.rotation.y,
