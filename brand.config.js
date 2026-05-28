@@ -95,7 +95,7 @@ module.exports = {
 
   // Local Asset References (Point directly to public/assets/)
   assets: {
-    logo: "/assets/63e619685a1498628d577a3f_logo-w.svg",
+    logo: "/assets/logo.jpeg",
     bLogo: "/assets/63ecc4a00bbcfd46c46a837a_Trace_128.png",
     bLogoW: "/assets/63e61b688f7e7ed65e5b0a94_b.svg",
     rotateTextSvg: "/assets/63ecf6e685b190418420c138_rotate-text.svg",
@@ -115,7 +115,6 @@ module.exports = {
     boysImg: "/assets/63e90b77037f3b2517d4756e_BOYS.webp",
     drumImg: "/assets/63e90bc74b769131c6341124_DRUM.webp",
     storageLeftBg: "/assets/63ea531d408a595ed6df58ce_AREA_2.webp",
-    storageRightBg: "/assets/63ea531dc03b68afbc61ec94_NYATHI_CRAFTY_BITS_LANDSCAPE.webp",
-    bottleCenterImg: "/assets/63ea542991c8a39084229d12_Groupe_66.webp"
+    storageRightBg: "/assets/63ea531dc03b68afbc61ec94_NYATHI_CRAFTY_BITS_LANDSCAPE.webp"
   }
 };

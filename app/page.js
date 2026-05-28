@@ -253,9 +253,6 @@ export default function Home() {
         <div class="bg-right">
           <img alt="" class="full-wd" loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 767px) 70vw, (max-width: 991px) 80vw, 60vw" src="${brand.assets.storageRightBg}" />
         </div>
-        <div class="bottle-center">
-          <img alt="" class="full-wd" loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 767px) 49vw, (max-width: 991px) 35vw, 23vw" src="${brand.assets.bottleCenterImg}" />
-        </div>
       </div>
 
       <!-- Contact Us snap section -->
