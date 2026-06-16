@@ -30,7 +30,7 @@ export default function FooterMusicCredit() {
     <div className="toni-credit">
       <audio ref={audioRef} src="/assets/audio/buffalo-background-music.mp3" loop preload="auto" />
       <span>
-        Crafted with code and creativity by <strong>Toni Naumoski.</strong>
+        Crafted with creativity by <strong>Toni Naumoski.</strong>
       </span>
       <button
         className="toni-credit__music"
