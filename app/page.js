@@ -172,6 +172,37 @@ const BRAND_STYLES = `
   .divider { background-color: ${brand.primaryColor} !important; }
   .brand-link:hover { background-color: ${brand.primaryColor} !important; }
   .submit-button { background-color: ${brand.primaryColor} !important; }
+  .toni-credit {
+    position: fixed;
+    right: 18px;
+    bottom: 14px;
+    z-index: 60;
+    max-width: min(420px, calc(100vw - 32px));
+    padding: 8px 12px;
+    border: 1px solid rgba(199, 134, 52, 0.34);
+    background: rgba(8, 3, 1, 0.72);
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.35;
+    text-align: right;
+    pointer-events: none;
+    backdrop-filter: blur(12px);
+  }
+  .toni-credit strong {
+    color: ${brand.primaryColor};
+    font-weight: 700;
+  }
+  @media screen and (max-width: 767px) {
+    .toni-credit {
+      left: 12px;
+      right: 12px;
+      bottom: 10px;
+      max-width: none;
+      text-align: center;
+      font-size: 10px;
+    }
+  }
   @media screen and (min-width: 992px) {
     .section-4 .h2-heading-sm {
       left: 0;
@@ -605,6 +636,9 @@ export default function Home() {
         style={{ display: 'contents' }}
         dangerouslySetInnerHTML={{ __html: htmlContent }}
       />
+      <div className="toni-credit">
+        Crafted with code and creativity by <strong>Toni Naumoski.</strong>
+      </div>
       <PagePreloader />
       <RotatingBottle lottieSrc={brand.assets.bottleLottie} src={brand.assets.bottleGlb} />
     </>
