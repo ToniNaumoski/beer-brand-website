@@ -1,4 +1,5 @@
 import brand from '../brand.config';
+import FooterMusicCredit from '../components/FooterMusicCredit';
 import PagePreloader from '../components/PagePreloader';
 import RotatingBottle from '../components/RotatingBottle';
 
@@ -177,6 +178,9 @@ const BRAND_STYLES = `
     right: 18px;
     bottom: 14px;
     z-index: 60;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     max-width: min(420px, calc(100vw - 32px));
     padding: 8px 12px;
     border: 1px solid rgba(199, 134, 52, 0.34);
@@ -186,18 +190,36 @@ const BRAND_STYLES = `
     font-weight: 500;
     line-height: 1.35;
     text-align: right;
-    pointer-events: none;
+    pointer-events: auto;
     backdrop-filter: blur(12px);
   }
   .toni-credit strong {
     color: ${brand.primaryColor};
     font-weight: 700;
   }
+  .toni-credit__music {
+    flex: 0 0 auto;
+    min-width: 78px;
+    padding: 6px 9px;
+    border: 1px solid rgba(199, 134, 52, 0.55);
+    background: rgba(199, 134, 52, 0.14);
+    color: #fff;
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .toni-credit__music:hover {
+    background: ${brand.primaryColor};
+    color: #0b0300;
+  }
   @media screen and (max-width: 767px) {
     .toni-credit {
       left: 12px;
       right: 12px;
       bottom: 10px;
+      justify-content: center;
       max-width: none;
       text-align: center;
       font-size: 10px;
@@ -636,9 +658,7 @@ export default function Home() {
         style={{ display: 'contents' }}
         dangerouslySetInnerHTML={{ __html: htmlContent }}
       />
-      <div className="toni-credit">
-        Crafted with code and creativity by <strong>Toni Naumoski.</strong>
-      </div>
+      <FooterMusicCredit />
       <PagePreloader />
       <RotatingBottle lottieSrc={brand.assets.bottleLottie} src={brand.assets.bottleGlb} />
     </>
