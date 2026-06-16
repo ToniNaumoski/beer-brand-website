@@ -194,6 +194,9 @@ export default function RotatingBottle({ lottieSrc, src }) {
 
     const loader = new GLTFLoader();
     loader.setDRACOLoader(dracoLoader);
+    window.dispatchEvent(new CustomEvent('buffalo:bottle-progress', {
+      detail: { progress: 0 },
+    }));
     loader.load(
       src,
       (gltf) => {
@@ -224,12 +227,22 @@ export default function RotatingBottle({ lottieSrc, src }) {
         }
 
         mount.classList.add('is-loaded');
+        window.dispatchEvent(new CustomEvent('buffalo:bottle-loaded'));
         gsap.to(wrapper, { opacity: 1, duration: 0.35, ease: 'power2.out' });
       },
-      undefined,
+      (event) => {
+        const progress = event.lengthComputable && event.total
+          ? Math.min(99, Math.round((event.loaded / event.total) * 100))
+          : 50;
+
+        window.dispatchEvent(new CustomEvent('buffalo:bottle-progress', {
+          detail: { progress },
+        }));
+      },
       (error) => {
         console.error('Bottle GLB failed to load', error);
         mount.classList.add('has-error');
+        window.dispatchEvent(new CustomEvent('buffalo:bottle-error'));
       }
     );
 
