@@ -12,10 +12,19 @@ const MODEL_VIEW_SCALE = 2.35;
 const DESKTOP_TIMELINE = [
   [{ x: 0, xu: 'em', y: 0, yu: 'em', z: 0, frame: 0, scale: 1 }, { x: 14, xu: 'em', y: 10, yu: 'em', z: -24, frame: 99, scale: 1.4 }],
   [{ x: 14, xu: 'em', y: 10, yu: 'em', z: -10, frame: 99, scale: 1.4 }, { x: -19, xu: 'em', y: 0, yu: 'em', z: 0, frame: 0, scale: 1.1 }],
-  [{ x: -19, xu: 'em', y: 0, yu: 'vh', z: -40, frame: 0, scale: 1.1 }, { x: 23, xu: 'em', y: 25, yu: 'vh', z: 0, frame: 99, scale: 0.4 }],
-  [{ x: 23, xu: 'em', y: 25, yu: 'vh', z: 0, frame: 99, scale: 0.4 }, { x: -25, xu: 'em', y: 4, yu: 'vh', z: -27, frame: 0, scale: 1.4 }],
+  [{ x: -19, xu: 'em', y: 0, yu: 'vh', z: -40, frame: 0, scale: 1.1 }, { x: 30, xu: 'em', y: 28, yu: 'vh', z: 0, frame: 99, scale: 1.15 }],
+  [{ x: 30, xu: 'em', y: 28, yu: 'vh', z: 0, frame: 99, scale: 1.15 }, { x: -25, xu: 'em', y: 4, yu: 'vh', z: -27, frame: 0, scale: 1.4 }],
   [{ x: -25, xu: 'em', y: 4, yu: 'vh', z: -27, frame: 0, scale: 1.4 }, { x: 25, xu: 'em', y: 0, yu: 'vh', z: 18, frame: 99, scale: 1.3 }],
   [{ x: 25, xu: 'em', y: 0, yu: 'vh', z: 18, frame: 99, scale: 1.3 }, { x: 0, xu: 'em', y: 0, yu: 'vh', z: 0, frame: 0, scale: 1 }],
+];
+const MOTION_KEYFRAMES = [
+  DESKTOP_TIMELINE[0][0],
+  DESKTOP_TIMELINE[0][1],
+  DESKTOP_TIMELINE[1][1],
+  DESKTOP_TIMELINE[2][1],
+  DESKTOP_TIMELINE[3][1],
+  DESKTOP_TIMELINE[4][1],
+  DESKTOP_TIMELINE[5][1],
 ];
 const TABLET_TIMELINE = [
   [{ x: 0, xu: 'em', y: 0, yu: 'em', z: 0, frame: 0, scale: 1 }, { x: 45, xu: 'em', y: 22, yu: 'em', z: -24, frame: 99, scale: 2 }],
@@ -36,6 +45,10 @@ const MOBILE_TIMELINE = [
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 const lerp = (from, to, progress) => from + (to - from) * progress;
+const resolveUnit = (value, unit) => {
+  if (unit === 'vh') return (window.innerHeight / 100) * value;
+  return (window.innerWidth / 100) * value;
+};
 const mixFrame = (from, to, progress) => ({
   x: lerp(from.x, to.x, progress),
   xu: to.xu,
@@ -47,10 +60,28 @@ const mixFrame = (from, to, progress) => ({
 });
 
 const getTimeline = () => {
-  if (window.innerWidth >= 992) return DESKTOP_TIMELINE;
-  if (window.innerWidth >= 768) return TABLET_TIMELINE;
-  return MOBILE_TIMELINE;
+  return DESKTOP_TIMELINE;
 };
+
+const toCssTransform = ({ x, xu, y, yu, z, scale }) => (
+  `translate3d(${x}${xu}, ${y}${yu}, 0) rotate(${z}deg) scale(${scale})`
+);
+
+const toResponsiveFrame = (frame) => ({
+  x: resolveUnit(frame.x, frame.xu),
+  xu: 'px',
+  y: resolveUnit(frame.y, frame.yu),
+  yu: 'px',
+  z: frame.z,
+  frame: frame.frame,
+  scale: frame.scale,
+});
+
+const mixResponsiveFrame = (from, to, progress) => mixFrame(
+  toResponsiveFrame(from),
+  toResponsiveFrame(to),
+  progress
+);
 
 const getCameraDistance = () => {
   if (window.innerWidth >= 992) return 13.5;
@@ -144,6 +175,7 @@ export default function RotatingBottle({ lottieSrc, src }) {
     let lastTime = performance.now();
     let disposed = false;
     let scrollState = { x: 0, xu: 'em', y: 0, yu: 'em', z: 0, frame: 0, scale: 1 };
+    let smoothState;
     let modelBaseRotation = { x: 0, y: 0, z: 0 };
 
     const fitRenderer = () => {
@@ -202,27 +234,17 @@ export default function RotatingBottle({ lottieSrc, src }) {
     );
 
     const readScrollState = () => {
-      const sections = document.querySelectorAll('.s-scroll');
-      const timeline = getTimeline();
-      const viewportHeight = window.innerHeight || 1;
+      const scrollMax = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      const pageProgress = clamp(window.scrollY / scrollMax, 0, 1);
+      const segmentCount = MOTION_KEYFRAMES.length - 1;
+      const segment = Math.min(segmentCount - 1, Math.floor(pageProgress * segmentCount));
+      const segmentProgress = (pageProgress * segmentCount) - segment;
 
-      for (let i = SECTION_INDEXES.length - 1; i >= 0; i -= 1) {
-        const section = sections[SECTION_INDEXES[i]];
-        if (!section) continue;
-
-        const rect = section.getBoundingClientRect();
-        if (rect.top <= viewportHeight && rect.bottom >= 0) {
-          const progress = clamp((viewportHeight - rect.top) / viewportHeight / 2, 0, 1);
-          return mixFrame(timeline[i][0], timeline[i][1], progress);
-        }
-      }
-
-      const lastSection = sections[SECTION_INDEXES[SECTION_INDEXES.length - 1]];
-      if (lastSection && lastSection.getBoundingClientRect().top < 0) {
-        return timeline[timeline.length - 1][1];
-      }
-
-      return timeline[0][0];
+      return mixResponsiveFrame(
+        MOTION_KEYFRAMES[segment],
+        MOTION_KEYFRAMES[segment + 1],
+        segmentProgress
+      );
     };
 
     const applyScrollState = (nextState) => {
@@ -238,12 +260,13 @@ export default function RotatingBottle({ lottieSrc, src }) {
       const delta = Math.min((time - lastTime) / 1000, 0.05);
       lastTime = time;
 
-      updateScrollState();
-      const proxyTransform = getComputedStyle(proxyLottie).transform;
+      const targetState = readScrollState();
+      const ease = 1 - Math.exp(-delta * 10);
+      smoothState = smoothState ? mixFrame(smoothState, targetState, ease) : targetState;
+      applyScrollState(smoothState);
       const proxyOpacity = getComputedStyle(proxyWrapper).opacity;
-      wrapper.style.transform = proxyTransform === 'none' ? '' : proxyTransform;
+      wrapper.style.transform = toCssTransform(scrollState);
       wrapper.style.opacity = proxyOpacity === '0' ? wrapper.style.opacity : proxyOpacity;
-      scrollState.frame = inferFrameFromTransform(proxyTransform);
 
       if (bottleRoot.children[0]) {
         const model = bottleRoot.children[0];

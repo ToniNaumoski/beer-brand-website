@@ -7,7 +7,54 @@ const NAV_TEXT_SVG = `<svg class="nav-text" height="100.329" width="100.327" xml
 const LOGO_MENU_SVG = `<svg height="33.876" id="MENU" viewBox="0 0 62.354 33.876" width="62.354" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><clipPath id="clip-path"><rect data-name="Rectangle 6" fill="#ffffff" height="33.876" id="Rectangle_6" width="62.354"></rect></clipPath></defs><g data-name="BUFFALO LOGO" id="BUFFALO_LOGO"><g clip-path="url(#clip-path)" data-name="Group 6" id="Group_6"><path d="M101.538,134.76a16.686,16.686,0,0,1-9.882-3.214,8.138,8.138,0,0,1-.892.424,17.642,17.642,0,0,0,21.548,0,8.08,8.08,0,0,1-.892-.424,16.684,16.684,0,0,1-9.881,3.214" data-name="Path 10" fill="${brand.primaryColor}" id="Path_10" transform="translate(-70.36 -101.766)"></path><path d="M62.362,16.292a16.5,16.5,0,0,1,32.932,0c.311.424.606.821.879,1.177.006-.176.014-.352.014-.53a17.364,17.364,0,0,0-34.718,0c0,.178.008.354.014.53.273-.356.569-.753.879-1.177" data-name="Path 11" fill="${brand.primaryColor}" id="Path_11" transform="translate(-47.651 -0.001)"></path><path d="M118.61,123.078c3.216,0,5.823-.565,5.823-1.263s-2.607-1.263-5.823-1.263-5.823.566-5.823,1.263,2.607,1.263,5.823,1.263" data-name="Path 12" fill="${brand.primaryColor}" id="Path_12" transform="translate(-87.433 -93.261)"></path><path d="M111.674,65.089c-.024-.07-.594-1.7-1.838-1.7a1.1,1.1,0,1,0-.009,2.2c.687.016,1.478.016,1.486.016h.534Z" data-name="Path 13" fill="${brand.primaryColor}" id="Path_13" transform="translate(-84.28 -49.035)"></path><path d="M157.877,64.483a1.109,1.109,0,0,0-1.116-1.1c-1.244,0-1.814,1.635-1.838,1.7l-.173.509h.534c.008,0,.8,0,1.485-.016a1.109,1.109,0,0,0,1.107-1.1" data-name="Path 14" fill="${brand.primaryColor}" id="Path_14" transform="translate(-119.963 -49.035)"></path><path d="M24.593,37.139A5.73,5.73,0,0,1,23.476,33.6a4.939,4.939,0,0,1,.965-2.51,3.2,3.2,0,0,1-1.034-3.3c1.018-3.361,4.447-2.056,6.272-3.822a2.993,2.993,0,0,0,.979-2.208,3.077,3.077,0,0,0-3.114-3.038,3.367,3.367,0,0,0-1.466.411c-3.939,1.793-10.563,12.933-12.731,14.931-2.35,2.166-7.9,2.074-9.59-2.329-2.4-6.253,5.88-10.091,5.88-10.091a9.616,9.616,0,0,0-9.265,7c-2.136,6.894,5.244,14.4,13.35,10.861.983-.429,3.291-1.412,3.291-1.412a5.312,5.312,0,0,0-2.162,3.178,3.95,3.95,0,0,0,.282,2.568s7.709,1.835,9.459-6.7" data-name="Path 15" fill="${brand.primaryColor}" id="Path_15" transform="translate(0 -14.477)"></path><path d="M171.283,28.641a9.616,9.616,0,0,0-9.265-7s8.284,3.838,5.88,10.091c-1.692,4.4-7.239,4.495-9.59,2.329-2.169-2-8.792-13.138-12.731-14.931a3.366,3.366,0,0,0-1.466-.411A3.077,3.077,0,0,0,141,21.752a2.994,2.994,0,0,0,.979,2.208c1.825,1.766,5.254.461,6.272,3.822a3.2,3.2,0,0,1-1.034,3.3,4.937,4.937,0,0,1,.965,2.51,5.729,5.729,0,0,1-1.117,3.544c1.75,8.531,9.459,6.7,9.459,6.7a3.95,3.95,0,0,0,.282-2.569,5.313,5.313,0,0,0-2.162-3.178s2.308.983,3.29,1.412c8.106,3.537,15.487-3.967,13.35-10.861" data-name="Path 16" fill="${brand.primaryColor}" id="Path_16" transform="translate(-109.302 -14.477)"></path><path d="M128.016,50.041a1.81,1.81,0,0,0-1.436-1.433.52.52,0,0,1-.461-.494c-.328-3.119-.341-3.119-.341-3.119H124.55s-.012,0-.341,3.119a.519.519,0,0,1-.461.494,1.811,1.811,0,0,0-1.436,1.433,4.08,4.08,0,0,0-.125.458c-.352,1.651-.94,4.128-.94,4.128a3.619,3.619,0,0,1,3.921.6,3.6,3.6,0,0,1,3.913-.6s-.587-2.477-.94-4.128a3.983,3.983,0,0,0-.125-.458m-2.848,4.171s0,.071,0,.175c0-.086,0-.175,0-.175m0,.343v.14c0-.068,0-.128,0-.14" data-name="Path 17" fill="${brand.primaryColor}" id="Path_17" transform="translate(-93.991 -34.808)"></path><path d="M122.246,92.738a1.473,1.473,0,0,0-.94-2.746,4.4,4.4,0,0,0-2.227,1.185v0a4.411,4.411,0,0,0-2.229-1.187,1.473,1.473,0,0,0-.94,2.746c.94.4,1.41.275,1.692.917a1.135,1.135,0,0,1-1.1,1.535,1.152,1.152,0,0,1-1.161-1.076c-.282-1.559-.911-1.483-.911-1.483l-1.043,4.235a19.687,19.687,0,0,1,5.643-.825h.009c.027,0,.051,0,.08,0a19.682,19.682,0,0,1,5.643.826l-1.023-4.239s-.649-.073-.931,1.486a1.152,1.152,0,0,1-1.161,1.076,1.135,1.135,0,0,1-1.1-1.535c.282-.642.752-.517,1.692-.918" data-name="Path 18" fill="${brand.primaryColor}" id="Path_18" transform="translate(-87.9 -69.614)"></path></g></g></svg>`;
 
 const BRAND_STYLES = `
-  .bottle { pointer-events: none; }
+  .bottle { pointer-events: none; z-index: 4 !important; }
+  .navbar { z-index: 20; }
+  .container-large,
+  .heading-holder,
+  .heading-holder-2,
+  .heading-holder-2-w,
+  .heading-holder-5,
+  .heading-holder-6,
+  .content-holder,
+  .stats,
+  .stat-c1,
+  .stat-c2,
+  .stat-c3,
+  .stat-c4,
+  .text-grid {
+    position: relative;
+    z-index: 12 !important;
+  }
+  .header-info,
+  .scroll-down,
+  .section-holder,
+  .holder-center,
+  .sc-holder,
+  .row-1,
+  .row-info,
+  .row {
+    position: relative;
+    z-index: 8;
+  }
+  .image-holder,
+  .bg,
+  .sc4-bg,
+  .bg-left,
+  .bg-right,
+  .boys {
+    z-index: 1;
+  }
+  .bottle-wrapper { height: clamp(320px, 40vw, 520px) !important; }
+  @media screen and (max-width: 767px) {
+    .section-4 .container-large,
+    .section-4 .section-wrap,
+    .section-4 .sc-holder,
+    .section-4 .heading-holder-2-w,
+    .section-4 .content-holder {
+      position: relative;
+      z-index: 30 !important;
+    }
+  }
   .bottle-wrapper--proxy, .bottle-wrapper--three { position: absolute; transform-origin: 50% 50%; will-change: transform, opacity; }
   .bottle-wrapper--proxy { overflow: hidden; pointer-events: none; visibility: hidden; }
   .bottle-wrapper--three { aspect-ratio: 685 / 1028; opacity: 0; width: auto; }
@@ -270,14 +317,13 @@ export default function Home() {
           <img alt="" class="full-wd sc4-bg-img" loading="lazy" sizes="(max-width: 479px) 0px, (max-width: 991px) 100vw, 65vw" src="${brand.assets.brandBg}" />
           <img alt="" class="sc4-bg-img-mb" loading="lazy" sizes="100vw" src="${brand.assets.brandBgMb}"/>
         </div>
+        <!--
         <div class="boys">
-          <div class="boys-image">
-            <img alt="" class="full-wd" loading="lazy" sizes="(max-width: 991px) 100vw, 55vw" src="${brand.assets.boysImg}" />
-          </div>
           <div class="drump">
             <img alt="" class="drump-img" loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 767px) 25vw, (max-width: 991px) 20vw, 15vw" src="${brand.assets.drumImg}" />
           </div>
         </div>
+        -->
       </div>
 
       <!-- Recipe snap section -->
