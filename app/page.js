@@ -20,6 +20,109 @@ const BRAND_STYLES = `
   .divider { background-color: ${brand.primaryColor} !important; }
   .brand-link:hover { background-color: ${brand.primaryColor} !important; }
   .submit-button { background-color: ${brand.primaryColor} !important; }
+  @media screen and (min-width: 992px) {
+    .section-4 .h2-heading-sm {
+      left: 0;
+      transform: translate(0.25em, 0px);
+    }
+  }
+  .buffalo-proof {
+    position: absolute;
+    right: 5.8em;
+    bottom: 5.2em;
+    z-index: 5;
+    display: grid;
+    width: min(38em, 42vw);
+    gap: 1.35em;
+    color: #fff;
+  }
+  .buffalo-proof__mark {
+    width: 7.5em;
+    height: 7.5em;
+    object-fit: cover;
+    border: 1px solid rgba(199, 134, 52, 0.65);
+    border-radius: 50%;
+    box-shadow: 0 0 2.5em rgba(199, 134, 52, 0.45);
+  }
+  .buffalo-proof__eyebrow {
+    color: ${brand.primaryColor};
+    font-size: 0.78em;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .buffalo-proof__title {
+    max-width: 12em;
+    font-family: Graun, sans-serif;
+    font-size: 3.1em;
+    font-weight: 400;
+    line-height: 0.95;
+  }
+  .buffalo-proof__copy {
+    max-width: 31em;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.9em;
+  }
+  .buffalo-proof__list {
+    display: grid;
+    gap: 0.7em;
+    padding-left: 0;
+    list-style: none;
+  }
+  .buffalo-proof__item {
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.82em;
+    font-weight: 600;
+  }
+  .buffalo-proof__item::before {
+    content: "";
+    width: 0.55em;
+    height: 0.55em;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: ${brand.primaryColor};
+    box-shadow: 0 0 1.2em rgba(199, 134, 52, 0.7);
+  }
+  @media screen and (max-width: 991px) {
+    .buffalo-proof {
+      right: 4em;
+      bottom: 4em;
+      width: 43em;
+      max-width: calc(100vw - 8em);
+    }
+  }
+  @media screen and (max-width: 479px) {
+    .buffalo-proof {
+      left: 6vw;
+      right: 6vw;
+      bottom: 7em;
+      width: auto;
+      max-width: none;
+      gap: 1em;
+    }
+    .buffalo-proof__mark {
+      width: 64px;
+      height: 64px;
+    }
+    .buffalo-proof__eyebrow {
+      font-size: 11px;
+    }
+    .buffalo-proof__title {
+      font-size: 28px;
+      max-width: 11em;
+    }
+    .buffalo-proof__copy {
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .buffalo-proof__item {
+      font-size: 12px;
+      line-height: 1.35;
+    }
+  }
 `;
 
 export default function Home() {
@@ -46,7 +149,7 @@ export default function Home() {
           <nav class="nav-menu w-nav-menu" role="navigation">
             <div class="nav-list">
               <a class="nav-link" href="#about-us">About Us</a>
-              <a class="nav-link" href="#Nyathi">${brand.name}</a>
+              <a class="nav-link" href="#${brand.name}">${brand.name}</a>
               <a class="nav-link" href="#Beer">Beer</a>
               <a class="nav-link" href="#contact">Contact Us</a>
             </div>
@@ -139,10 +242,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
-        <div class="hand">
-          <img alt="" class="hand-img" loading="lazy" sizes="(max-width: 479px) 0px, (max-width: 991px) 100vw, 90vw" src="${brand.assets.handImg}" />
-          <img alt="" class="hand-img-mb" loading="lazy" src="${brand.assets.handImgMb}"/>
         </div>
         <div class="bg">
           <img alt="" class="img-fluid" loading="lazy" sizes="100vw" src="${brand.assets.storyBg}" />
@@ -255,7 +354,8 @@ export default function Home() {
         </div>
       </div>
 
-      <!-- Contact Us snap section -->
+      <!--
+      Contact Us snap section
       <div class="section s-scroll contact-section wf-section" id="contact">
         <div class="container-large h100">
           <div class="section-wrap">
@@ -343,6 +443,7 @@ export default function Home() {
           <div class="text-block-3"></div>
         </a>
       </div>
+      -->
 
     </div>
   `;

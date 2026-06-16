@@ -3,93 +3,103 @@
 
 module.exports = {
   // Brand Basics
-  name: "NYATHI",
-  companyName: "The Buffalo Brewing Company",
-  tagline: "Our Traditional Craft Beer, an African legacy, proudly brewed here in Zimbabwe.",
+  name: "BUFFALO",
+  companyName: "Buffalo Beer Co.",
+  tagline: "A bold Kentucky beer brewed in the USA with grit, craft, and a frontier spirit.",
   primaryColor: "#c78634", // HSL tailored gold
   secondaryColor: "#ffffff",
 
   // SEO & Metadata (For pre-rendered Server layout)
   seo: {
-    title: "Nyathi - Traditional Craft Beer",
-    description: "Our Traditional Craft Beer, an African legacy, proudly brewed here in Zimbabwe.",
-    keywords: "beer, sorghum, Nyathi, craft beer, Zimbabwe, traditional beer, brewery, buffalo brewing",
+    title: "Buffalo Beer - Kentucky Craft Beer",
+    description: "Buffalo Beer is a bold American beer brewed in Kentucky with a smooth malt body, crisp finish, and frontier attitude.",
+    keywords: "Buffalo Beer, Kentucky beer, USA beer, craft beer, American lager, brewery, buffalo brewing",
     ogImage: "/assets/63e6221b5a1498d65857ff6a_NYATHI_CRAFTY_BITS_LANDSCAPE.webp",
-    canonicalUrl: "https://conveyflow-nyathi.webflow.io/"
+    canonicalUrl: "https://buffalobeer.com/"
   },
 
   // Main Page Text Content (Organized by sections)
   content: {
     hero: {
-      heading: "NYATHI"
+      heading: "BUFFALO"
     },
     history: {
-      heading1: "the",
-      heading2: "IS",
+      heading1: "born",
+      heading2: "IN",
       heading3: "BUFFALO",
-      heading4: "ALIVE",
-      title: "Our History",
-      paragraph: "Sorghum beer brewing is an age old craft. For centuries homestead brewers, have been carefully selecting the very best ingredients harvested from our bountiful lands, expertly malting and fermenting the raw grains and turning it into the Sorghum beer we all love. Nyathi is a celebration of this craft. This is Our Traditional Craft Beer, an African legacy, proudly brewed here in Zimbabwe."
+      heading4: "COUNTRY",
+      title: "Our Origin",
+      paragraph: "Buffalo Beer was imagined in Kentucky, where long roads, oak barrels, live music, and late summer evenings all seem to ask for one thing: a beer with character. We brew for the people who like their stories honest, their pours cold, and their flavor strong enough to stand beside good food, good friends, and a night that refuses to end early."
     },
     story: {
-      heading1: "FULL OF",
-      heading2: "AFRICAN",
-      heading3: "SOUL",
-      title: "Our Story",
-      paragraph: "Nyathi is the brand name of the Traditional Beer commercially brewed by The Buffalo Brewing Company. Nyathi “Regular” is a premium sorghum beer, smooth and creamy with a distinctive malt flavour and a well-balanced sourness."
+      heading1: "BUILT",
+      heading2: "WITH",
+      heading3: "GRIT",
+      title: "The Story",
+      paragraph: "The buffalo is our symbol because it does not move for trends. It stands steady, powerful, and unmistakably American. Buffalo Beer carries that same energy: a Kentucky-made brew with a smooth malt backbone, a clean finish, and enough bite to feel memorable without getting heavy."
     },
     brand: {
-      heading1: "THE",
-      heading2: "RESPECT",
-      heading3: "CRAFT",
+      heading1: "",
+      heading2: "BOLD",
+      heading3: "BEER",
       title: "Our Brand",
-      paragraph: "Nyathi is a confident, and inspirational brand for the modern, contemporary man who is grounded in his traditional values. A brand for a man proud of his cultural identity, a brand that enables a deep sense of belonging and a celebration of his African soul."
+      paragraph: "Buffalo Beer is made for the table, the tailgate, the backyard, and the bar top. It is confident without being loud, classic without feeling old, and crafted for drinkers who want an American beer with a real point of view.",
+      proof: {
+        eyebrow: "Kentucky brewed",
+        title: "A smooth malt body with a clean, cold finish.",
+        paragraph: "After the welcome, the story gets practical: what is in the glass, where it comes from, and why the buffalo mark belongs on it. This is a beer built for long evenings, loud tables, and straight-up American refreshment.",
+        points: [
+          "Selected barley malt, hops, yeast, and pure water",
+          "Balanced for cookouts, bars, tailgates, and late nights",
+          "Brewed in the USA with the Buffalo mark on every bottle"
+        ]
+      }
     },
     recipe: {
-      heading1: "PREMIUM",
-      heading2: "TASTE",
-      heading3: "ORIGINAL",
-      heading4: "RECIPE",
+      heading1: "KENTUCKY",
+      heading2: "MALT",
+      heading3: "COLD",
+      heading4: "FINISH",
       stat1: {
         title: "Brewed",
-        desc: "from maize, sorghum malt & water."
+        desc: "with selected barley malt, hops, yeast & pure water."
       },
       stat2: {
-        title: "4%",
-        desc: "Alcohol, Total 40g"
+        title: "5%",
+        desc: "Alcohol, crisp body <br/>and a smooth finish"
       }
     },
     brewery: {
       heading1: "OUR",
-      heading2: "BREWERY",
-      paragraph1: "Nested amongst maize fields in Stapleford, just north of Harare, Nyathi is brewed in our brand-new state of the art brewery. Our Master Brewers work tirelessly at fine tuning their craft to bring you a beer just perfect for the palette. Every brew is taste tested by our expert brewing team and each bottle hand checked to ensure only the very best quality leaves our brewery.",
-      paragraph2: "Every bottle carries the Nyathi symbol – our signature stamp of Quality - approved."
+      heading2: "KENTUCKY",
+      paragraph1: "Buffalo Beer is brewed in the heart of Kentucky with an eye for balance: enough malt warmth to feel rich, enough hop character to stay bright, and a clean finish that keeps the next sip calling. Every batch is checked for clarity, aroma, carbonation, and consistency before it earns the buffalo mark.",
+      paragraph2: "Every bottle carries the Buffalo mark as a promise: brewed in the USA, built with pride, and made to be shared."
     },
     usage: {
       storage: {
         title: "Storage",
-        desc: "Store in a cool <br/>dry place out of direct sunlight"
+        desc: "Store cold and keep away <br/>from direct sunlight"
       },
       shake: {
-        title: "Shake it",
-        desc: "Shake gently before opening for better taste"
+        title: "Serve it",
+        desc: "Pour chilled into a glass <br/>or drink straight from the bottle"
       }
     },
     contact: {
       heading1: "GET",
       heading2: "IN TOUCH",
       heading3: "WITH US",
-      phone: "+263 775 388 090",
-      email: "customercare@buffalo.co.zw",
-      address: "5 Shamwari Road, Stapleford Harare, Zimbabwe.",
-      copyright: "© 2023 Nyathi. All rights Reserved."
+      phone: "+1 (502) 555-0198",
+      email: "hello@buffalobeer.com",
+      address: "Louisville, Kentucky, USA.",
+      copyright: "(c) 2026 Buffalo Beer Co. All rights reserved."
     }
   },
 
   // Social Media Links
   socials: {
-    facebook: "https://www.facebook.com/NyathiBeer",
-    twitter: "https://twitter.com/NyathiBeer",
+    facebook: "https://www.facebook.com/BuffaloBeer",
+    twitter: "https://twitter.com/BuffaloBeer",
     instagram: "#"
   },
 
@@ -102,7 +112,7 @@ module.exports = {
     bottleLottie: "/assets/63e61ddce565b83f1f04fa46_bottle_3d_fixed_2.json",
     bottleGlb: "/assets/3d/beer-bottle-two.glb",
     txtsLottie: "/assets/63e969f568e326e905f26ff4_63e21f1277369497ec7325f5_TXTs.json",
-    
+
     // WebP/PNG Images
     historyBg: "/assets/63e6221b5a1498d65857ff6a_NYATHI_CRAFTY_BITS_LANDSCAPE.webp",
     historyBgMb: "/assets/63ebabbc92ab0b9961fff8d6_Rectangle_29.webp",
